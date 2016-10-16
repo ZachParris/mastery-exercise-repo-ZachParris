@@ -30,12 +30,14 @@ namespace RepoQuiz.Migrations
             //
             NameGenerator name_creator = new NameGenerator();
             Student created_student = name_creator.GenerateRandomStudent();
-
-            context.Students.AddOrUpdate(
-                s => s.FirstName,
-                created_student
-                );
-            context.SaveChanges();
+            while (context.Students.Count() < 10)
+            {
+                context.Students.AddOrUpdate(
+                    s => s.FirstName,
+                    created_student
+                    );
+                context.SaveChanges();
+            }
         }
     }
 }
