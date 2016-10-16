@@ -1,5 +1,7 @@
 namespace RepoQuiz.Migrations
 {
+    using DAL;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +28,14 @@ namespace RepoQuiz.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            NameGenerator name_creator = new NameGenerator();
+            Student created_student = name_creator.GenerateRandomStudent();
+
+            context.Students.AddOrUpdate(
+                s => s.FirstName,
+                created_student
+                );
+            context.SaveChanges();
         }
     }
 }

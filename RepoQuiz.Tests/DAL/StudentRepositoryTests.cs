@@ -31,7 +31,6 @@ namespace RepoQuiz.Tests.DAL
             mock_context.Setup(c => c.Students).Returns(mock_student_table.Object);
 
             mock_student_table.Setup(t => t.Add(It.IsAny<Student>())).Callback((Student a) => student_list.Add(a));
-            mock_student_table.Setup(t => t.Remove(It.IsAny<Student>())).Callback((Student a) => student_list.Remove(a));
         }
 
         [TestInitialize]
@@ -83,18 +82,6 @@ namespace RepoQuiz.Tests.DAL
             // Assert
             Assert.AreEqual(expected_student_count, actual_student_count);
         }
-
-        [TestMethod]
-        public void RepoEnsureAddStudentToDatabase()
-        {
-
-            Student my_student = new Student { FirstName = "Kurt", LastName = "Russel", Major = "English" }; 
-            repo.AddStudents(my_student);
-            int actual_student_count = repo.GetStudents().Count;
-            int expected_student_count = 1;
-            Assert.AreEqual(expected_student_count, actual_student_count);
-        }
-
         
     }
 }
