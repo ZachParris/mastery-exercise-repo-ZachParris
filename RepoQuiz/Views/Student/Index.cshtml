@@ -3,3 +3,28 @@
 }
 
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>StudentId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Major</th>
+        </tr>
+    </thead>
+    <tbody>
+                
+@{foreach (var student in ViewBag.Students)
+    {
+
+        <tr>
+            <td class="table-active">@student.StudentID</td>
+            <td class="table-success">@student.FirstName</td>
+            <td class="table-warning">@student.LastName</td>
+            <td class="table-danger">@student.Major</td>
+        </tr>
+    }
+}
+
+    </tbody>
+</table> 

@@ -11,6 +11,8 @@ namespace RepoQuiz.DAL
         private string first_name = "Trent";
         private string last_name = "Smith";
         private string major = "Art";
+        Random rnd = new Random();
+
         // This class should be used to generate random names and Majors for Students.
         // This is NOT your Repository
         // All methods should be Unit Tested :)
@@ -31,7 +33,10 @@ namespace RepoQuiz.DAL
 
         public Student GenerateRandomStudent()
         {
-            Student new_student = new Student() { FirstName = first_name, LastName = last_name, Major = major};
+            int firstNameIndex = rnd.Next(FirstName.Count());
+            int lastNameIndex = rnd.Next(LastName.Count());
+            int majorIndex = rnd.Next(Majors.Count());
+            Student new_student = new Student() { FirstName = FirstName[firstNameIndex], LastName = LastName[lastNameIndex], Major = Majors[majorIndex]};
             return new_student;
            //return null;
         }

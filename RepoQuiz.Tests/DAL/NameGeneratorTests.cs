@@ -13,5 +13,14 @@ namespace RepoQuiz.Tests.DAL
             NameGenerator tester = new NameGenerator();
             Assert.IsNotNull(tester);
         }
+
+        [TestMethod]
+        public void CanGenerateRandomStudent()
+        {
+            NameGenerator tester = new NameGenerator();
+            var student1 = tester.GenerateRandomStudent();
+            var student2 = tester.GenerateRandomStudent();
+            Assert.AreNotEqual(student1, student2);
+        }
     }
 }

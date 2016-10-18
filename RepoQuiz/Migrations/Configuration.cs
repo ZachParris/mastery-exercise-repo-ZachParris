@@ -29,15 +29,21 @@ namespace RepoQuiz.Migrations
             //    );
             //
             NameGenerator name_creator = new NameGenerator();
-            Student created_student = name_creator.GenerateRandomStudent();
-            while (context.Students.Count() < 10)
-            {
-                context.Students.AddOrUpdate(
-                    s => s.FirstName,
-                    created_student
+            Student created_student1 = name_creator.GenerateRandomStudent();
+            Student created_student2 = name_creator.GenerateRandomStudent();
+            Student created_student3 = name_creator.GenerateRandomStudent();
+            Student created_student4 = name_creator.GenerateRandomStudent();
+            Student created_student5 = name_creator.GenerateRandomStudent();
+            Student created_student6 = name_creator.GenerateRandomStudent();
+            Student created_student7 = name_creator.GenerateRandomStudent();
+            Student created_student8 = name_creator.GenerateRandomStudent();
+            Student created_student9 = name_creator.GenerateRandomStudent();
+            Student created_student10 = name_creator.GenerateRandomStudent();
+            context.Students.AddOrUpdate(
+                    s => new { s.FirstName, s.LastName, s.Major },
+                    created_student1, created_student2, created_student3, created_student4, created_student5, created_student6, created_student7, created_student8, created_student9, created_student10
                     );
                 context.SaveChanges();
             }
-        }
     }
 }
