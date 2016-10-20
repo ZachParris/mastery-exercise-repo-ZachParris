@@ -38,7 +38,6 @@ namespace RepoQuiz.DAL
             int majorIndex = rnd.Next(Majors.Count());
             Student new_student = new Student() { FirstName = FirstName[firstNameIndex], LastName = LastName[lastNameIndex], Major = Majors[majorIndex]};
             return new_student;
-           //return null;
         }
     }
 }

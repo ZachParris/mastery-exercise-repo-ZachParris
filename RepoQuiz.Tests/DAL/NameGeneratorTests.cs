@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RepoQuiz.DAL;
+using RepoQuiz.Models;
 
 namespace RepoQuiz.Tests.DAL
 {
@@ -22,5 +23,17 @@ namespace RepoQuiz.Tests.DAL
             var student2 = tester.GenerateRandomStudent();
             Assert.AreNotEqual(student1, student2);
         }
+
+        [TestMethod]
+        public void EnsureNameGeneratorPropertiesAreNotNull()
+        {
+            NameGenerator tester = new NameGenerator();
+            Student new_student = new Student();
+
+            Assert.IsNotNull(new_student.FirstName);
+            Assert.IsNotNull(new_student.LastName);
+            Assert.IsNotNull(new_student.Major);
+        }
+
+        }
     }
-}
